@@ -1,7 +1,4 @@
-import { Building2, Calendar } from "lucide-react"
 import Link from "next/link"
-
-import { Badge } from "@/components/ui/badge"
 
 const experiences = [
   {
@@ -9,7 +6,7 @@ const experiences = [
     company: "Shanghai Jiao Tong University",
     period: "2020 - Present",
     description:
-      "'Full stack AI for Science' (Theory -> Algorithms -> Engineering) development of methods solving scientific problems with deep learning, particularly in the fields of kinetic theory and full wave inversion",
+      "Developing full-stack AI for science—from theory to algorithms and engineering—with an emphasis on kinetic theory and full-waveform inversion.",
     tags: ["DeepRTE", "APNNs", "Inverse Problems"],
   },
   {
@@ -74,44 +71,24 @@ const experiences = [
 
 export default function Resume() {
   return (
-    <div className="mx-auto px-2 py-4">
-      <div className="relative ml-3">
-        {/* Timeline line */}
-        <div className="absolute top-4 bottom-0 left-0 border-l-2" />
-        {experiences.map(({ company, description, period, tags, title }) => (
-          <div key={title} className="relative pb-12 pl-8 last:pb-0">
-            {/* Timeline dot */}
-            <div className="absolute top-3 left-px h-3 w-3 -translate-x-1/2 rounded-full border-2 border-primary bg-background" />
-
-            {/* Content */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-2.5">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent">
-                  <Building2 className="h-5 w-5 text-muted-foreground" />
-                </div>
-                <span className="text-base font-medium">{company}</span>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold">{title}</h3>
-                <div className="mt-2 flex items-center gap-2 text-sm">
-                  <Calendar className="h-4 w-4" />
-                  <span>{period}</span>
-                </div>
-              </div>
-              <div className="text-sm text-pretty text-muted-foreground sm:text-base">
-                {description}
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {tags.map((tag) => (
-                  <Badge key={tag} variant="secondary" className="rounded-full">
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
+    <ol className="divide-y border-y">
+      {experiences.map(({ company, description, period, tags, title }) => (
+        <li key={title} className="grid gap-3 py-7 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-8">
+          <p className="font-mono text-sm text-muted-foreground">{period}</p>
+          <div className="flex max-w-2xl flex-col gap-2">
+            <div>
+              <h3 className="font-medium">{title}</h3>
+              <p className="text-sm text-muted-foreground">{company}</p>
             </div>
+            <div className="text-sm leading-6 text-pretty text-muted-foreground">{description}</div>
+            {tags.length > 0 ? (
+              <p className="mt-1 text-xs tracking-wide text-muted-foreground uppercase">
+                {tags.join(" · ")}
+              </p>
+            ) : null}
           </div>
-        ))}
-      </div>
-    </div>
+        </li>
+      ))}
+    </ol>
   )
 }

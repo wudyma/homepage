@@ -190,7 +190,7 @@ export function PublicationList({ publications, showSearch = true }: Publication
   const filteredNum = sortedPublications.length
 
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col gap-5">
       {showSearch && (
         <div className="flex flex-wrap items-center gap-3">
           <div className="relative min-w-75 flex-1">
@@ -269,7 +269,7 @@ export function PublicationList({ publications, showSearch = true }: Publication
         </div>
       )}
       {showSearch && showFilters && (
-        <div className="animate-in space-y-2 duration-200 slide-in-from-top-2">
+        <div className="flex animate-in flex-col gap-2 duration-200 slide-in-from-top-2">
           {/* Year filters */}
           {uniqueYears.length > 0 && (
             <div className="flex items-center gap-2 overflow-x-auto pb-1">

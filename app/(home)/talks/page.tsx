@@ -87,9 +87,16 @@ export default async function Page() {
   const talks = await getTalksInfo()
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="mb-8 text-4xl font-bold">Talks & Presentations</h1>
-
+    <div className="flex flex-col gap-10 py-12 sm:py-20">
+      <section className="flex max-w-2xl flex-col gap-4">
+        <p className="font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase">
+          Seminars · Conferences · Lectures
+        </p>
+        <h1 className="text-5xl font-semibold tracking-[-0.04em] sm:text-6xl">Talks</h1>
+        <p className="text-lg leading-8 text-muted-foreground">
+          Slides and materials from selected research presentations.
+        </p>
+      </section>
       <TalksList talks={talks} />
     </div>
   )

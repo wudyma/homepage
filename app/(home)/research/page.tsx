@@ -5,18 +5,20 @@ import { source } from "@/lib/source"
 export default function ResearchPage() {
   const pageTreeMeta = source.pageTree.children
   return (
-    <>
-      <section className="mt-12">
-        <h1 className="text-center text-3xl font-bold md:text-5xl">Research Interests</h1>
-        <p className="mt-10 mb-8 indent-8 text-lg">
-          Welcome to my homepage, I&apos;m a mathematician and tech enthusiast. My research
-          interests include computational mathematics and deep learning methods. I am particularly
-          interested in the interplay between deep learning and mathematics, and how deep learning
-          methods can be applied to solve problems in mathematical and engineering.
+    <div className="flex flex-col gap-14 py-12 sm:gap-20 sm:py-20">
+      <section className="flex max-w-3xl flex-col gap-5">
+        <p className="font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase">
+          Mathematics · Computation · Learning
+        </p>
+        <h1 className="text-5xl font-semibold tracking-[-0.04em] sm:text-6xl">Research</h1>
+        <p className="text-lg leading-8 text-muted-foreground sm:text-xl sm:leading-9">
+          I study computational mathematics and scientific machine learning, with particular
+          interest in how mathematical structure can guide reliable methods for scientific and
+          engineering problems.
         </p>
       </section>
       <ResearchAreas metas={pageTreeMeta} />
       <GroupMembers />
-    </>
+    </div>
   )
 }

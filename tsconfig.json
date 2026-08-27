@@ -19,9 +19,8 @@
       }
     ],
     "ignoreDeprecations": "6.0",
-    "baseUrl": ".",
     "paths": {
-      "fumadocs-mdx:collections/*": [".source/*"],
+      "fumadocs-mdx:collections/*": ["./.source/*"],
       "@/*": ["./*"]
     }
   },

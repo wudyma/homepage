@@ -163,7 +163,7 @@ export function TalksList({ talks }: TalksListProps) {
   }, [filteredTalks, sortField, sortDirection])
 
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col gap-5">
       {/* Search Bar */}
       <div className="flex flex-wrap items-center gap-3">
         <div className="relative min-w-75 flex-1">
@@ -369,7 +369,7 @@ export function TalksList({ talks }: TalksListProps) {
               }}
               className="group block cursor-pointer"
             >
-              <Card className="relative flex h-full flex-col overflow-hidden border-border/40 bg-card shadow-sm transition-all duration-300 hover:border-primary/50 hover:shadow-md dark:border-border/50 dark:hover:border-primary/60">
+              <Card className="relative flex h-full flex-col overflow-hidden shadow-none transition-colors hover:border-foreground/25">
                 {/* Preview Area */}
                 <div className="relative -mt-6 aspect-video w-full overflow-hidden bg-linear-to-br from-primary/8 to-primary/3">
                   {talk.previewImage ? (
@@ -409,8 +409,8 @@ export function TalksList({ talks }: TalksListProps) {
                   </div>
                 </div>
 
-                <CardHeader className="flex flex-1 flex-col space-y-3 px-5">
-                  <div className="space-y-2">
+                <CardHeader className="flex flex-1 flex-col gap-3 px-5">
+                  <div className="flex flex-col gap-2">
                     <CardTitle className="line-clamp-2 text-base leading-snug font-semibold transition-colors group-hover:text-primary">
                       {talk.metadata.title || talk.dirname}
                     </CardTitle>
@@ -453,7 +453,10 @@ export function TalksList({ talks }: TalksListProps) {
                     )}
                   </div>
 
-                  <div className="mt-auto space-y-2.5 pt-2" onClick={(e) => e.stopPropagation()}>
+                  <div
+                    className="mt-auto flex flex-col gap-2.5 pt-2"
+                    onClick={(e) => e.stopPropagation()}
+                  >
                     {/* Action Links */}
                     {(talk.pdfUrl || talk.sourceUrl) && (
                       <div className="flex gap-2">

@@ -8,7 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <HomeLayout {...baseOptions()} links={linkItems}>
       <main>
-        <article className="mx-auto max-w-5xl px-8">{children}</article>
+        <article className="mx-auto max-w-5xl px-5 sm:px-8">{children}</article>
       </main>
       <BackToTopButton />
       <Footer />
